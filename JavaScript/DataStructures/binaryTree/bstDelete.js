@@ -1,0 +1,2 @@
+import {Binarytree} from "./binaryTreeClass";
+
