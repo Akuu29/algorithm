@@ -5,6 +5,10 @@ export class Heap {
     static right(i) {
         return 2 * i + 2;
     }
+    static parent(i) {
+        // i番目の葉ノードの親ノードのインデックス
+        return Math.floor((i - 1) / 2);
+    }
     static maxHeapify(intArr, i) {
         let left = Heap.left(i);
         let right = Heap.right(i);
@@ -19,5 +23,9 @@ export class Heap {
             intArr[biggest] = temp;
             Heap.maxHeapify(intArr, biggest);
         }
+    }
+    static buildMaxHeap(intArr) {
+        let middle = Heap.parent(intArr.length);
+        for(let i = middle; i >= 0; i--) Heap.maxHeapify(intArr, i);
     }
 }
