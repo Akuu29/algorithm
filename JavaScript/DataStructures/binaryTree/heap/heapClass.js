@@ -28,4 +28,19 @@ export class Heap {
         let middle = Heap.parent(intArr.length);
         for(let i = middle; i >= 0; i--) Heap.maxHeapify(intArr, i);
     }
+    static minHeapify(intArr, i) {
+        let left = Heap.left(i);
+        let right = Heap.right(i);
+
+        let smallest = i;
+        if(intArr[left] < intArr[smallest]) smallest = left;
+        if(intArr[right] < intArr[smallest]) smallest = right;
+
+        if(smallest != i) {
+            let temp = intArr[i];
+            intArr[i] = intArr[smallest];
+            intArr[smallest] = temp;
+            Heap.minHeapify(intArr, smallest);
+        }
+    }
 }
