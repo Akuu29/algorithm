@@ -14,8 +14,8 @@ export class Heap {
         let right = Heap.right(i);
 
         let biggest = i;
-        if(intArr[left] > intArr[biggest]) biggest = left;
-        if(intArr[right] > intArr[biggest]) biggest = right;
+        if(left < intArr.length && intArr[left] > intArr[biggest]) biggest = left;
+        if(right < intArr.length && intArr[right] > intArr[biggest]) biggest = right;
 
         if(biggest != i) {
             let temp = intArr[i];
