@@ -43,4 +43,15 @@ export class Heap {
             Heap.minHeapify(intArr, smallest);
         }
     }
+    static heapSort(intArr) {
+        Heap.buildMaxHeap(intArr);
+
+        let heapEnd = intArr.length - 1;
+        while(heapEnd > 0) {
+            let temp = intArr[heapEnd];
+            intArr[heapEnd] = intArr[0];
+            heapEnd--;
+            Heap.maxHeapify(intArr, hepaEnd, 0);
+        }
+    }
 }
